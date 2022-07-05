@@ -1009,7 +1009,7 @@ class ReleasePlanner:
             query = select(models.Release).where(
                 models.Release.id == release_id
             ).options(
-                selectinload(models.Release.created_by),
+                selectinload(models.Release.owner),
                 selectinload(models.Release.platform).selectinload(
                     models.Platform.reference_platforms),
                 selectinload(models.Release.platform).selectinload(
@@ -1062,7 +1062,7 @@ class ReleasePlanner:
             query = select(models.Release).where(
                 models.Release.id == release_id
             ).options(
-                selectinload(models.Release.created_by),
+                selectinload(models.Release.owner),
                 selectinload(models.Release.platform).selectinload(
                     models.Platform.repos.and_(
                         models.Repository.production.is_(True)
