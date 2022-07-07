@@ -27,6 +27,7 @@ class Settings(BaseSettings):
     github_client: str
     github_client_secret: str
 
+    passwords_secret: str
     jwt_secret: str
     jwt_algorithm: str = 'HS256'
 
@@ -39,5 +40,6 @@ class Settings(BaseSettings):
     sign_server_token: typing.Optional[str]
 
     logging_level: typing.Optional[str] = 'INFO'
+
 
 settings = Settings()
